@@ -1,4 +1,39 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+setwd("/Users/daisydu/Desktop")
+dataset<-read.csv("PersonenSchaden.csv",header=T)  ## a ##
+
+mean(dataset$total)
+var(dataset$total)
+sd(dataset$total)
+summary(dataset$total)    ## b ##
+
+
+hist(dataset$total,100)    ## c ##
+hist(dataset$op_time)    ##  d  ## 
+
+h<-hist(dataset$legrep,2,freq=F)
+h$density<-h$counts/sum(h$counts)
+plot(h,freq = F,main="Legal representation proportionof claims", xlab="legal representation",ylab="proportion")  ## e ##
+
+inj3<-as.numeric(as.character(dataset$inj3))
+his.inj1<-hist(dataset$inj1,9,freq=F)
+his.inj2<-hist(dataset$inj2,9,freq=F,add=T)
+his.inj3<-hist(inj3,9,freq=F,add=T)
+his.inj4<-hist(dataset$inj4,9,freq=F,add=T)
+his.inj5<-hist(dataset$inj5,9,freq=F,add=T)   ## f ##
+
+## h ##
+logtotal<-log(dataset$total)
+hist(logtotal,100)
+
+## i ##
+> plot(dataset$op_time,dataset$total)
+> plot(dataset$op_time,logtotal)
+
+##k##
+plot(dataset$op_time,logtotal,col=ifelse(dataset$legrep==0,"red","black"),pch=".",xlab="operational time",ylab="log value of claim amount")
+
+
+
+
+
+
