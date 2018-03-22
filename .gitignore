@@ -43,3 +43,4 @@ plot(op_time,logtotal,col=ifelse(legrep==0,"red","black"),pch=18,xlab="operation
 
 
 
+.Rproj.user
