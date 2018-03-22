@@ -36,12 +36,13 @@ leg.prob=h$counts/sum(h$counts)
 barplot(leg.prob,names.arg =c("no","yes"),main = "The Proportion of Legal Representation",xlab="",ylab="Proportion")  
 
 ## f ##
-inj3<-as.numeric(as.character(dataset$inj3))
-his.inj1<-hist(dataset$inj1,9,freq=F)
-his.inj2<-hist(dataset$inj2,9,freq=F,add=T)
-his.inj3<-hist(inj3,9,freq=F,add=T)
-his.inj4<-hist(dataset$inj4,9,freq=F,add=T)
-his.inj5<-hist(dataset$inj5,9,freq=F,add=T)   
+inj3<-as.numeric(as.character(inj3))
+inj<-c(inj1,inj2,inj3,inj4,inj5)
+inj[inj==0]=NA
+t<-table(inj)
+inj.prob<-t/sum(t)
+barplot(inj.prob)
+  
 
 ## h ##
 logtotal<-log(dataset$total)
@@ -55,8 +56,4 @@ plot(op_time,logtotal,main="Claim Amounts in Log Value versus Operation Time", y
 ## k ##
 plot(op_time,logtotal,col=ifelse(legrep==0,"red","black"),pch=18,xlab="operational time",ylab="log value of claim amount",main="Claim Amounts in Log Value versus Operation Time",cex=0.3)
 
-> inj<-c(inj1,inj2,inj3,inj4,inj5)
-> inj[inj==0]=NA
-> t<-table(inj)
-> inj.prob<-t/sum(t)
-> barplot(inj.prob)
+
