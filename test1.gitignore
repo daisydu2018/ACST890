@@ -28,6 +28,7 @@ summary(total)
 ## c ##
 hist(total,150,main="Histogram of Settled Amounts",ylab="Number of Claims",xlab="Settled Amount")   
 ## d ##
+delay=finmonth-repmonth
 hist(delay,main="Histogram of Delay Months",ylab="Number of Claims",xlab="Delay Months")    
 
 ##  e  ##
@@ -41,7 +42,7 @@ inj<-c(inj1,inj2,inj3,inj4,inj5)
 inj[inj==0]=NA
 t<-table(inj)
 inj.prob<-t/sum(t)
-barplot(inj.prob)
+barplot(inj.prob,ylim=c(0,0.9),main="The Histogram of Injury Levels", ylab="Proportion", xlab="Injury Levels",names.arg=c(1,2,3,4,5,6,"Not Recorded"))
   
 
 ## h ##
@@ -49,7 +50,6 @@ logtotal<-log(dataset$total)
 hist(logtotal,50,main="Histogram of Claim Amounts in Log value", xlab="Claim Amounts in Log value")
 
 ## i ##
-
 plot(op_time,total,main="Claim Amounts versus Operation Time", ylab="Claim Size",xlab="Operational Time",cex=0.5,pch=18)
 plot(op_time,logtotal,main="Claim Amounts in Log Value versus Operation Time", ylab="Claim Size in Log Value",xlab="Operational Time", cex=0.3)
 
