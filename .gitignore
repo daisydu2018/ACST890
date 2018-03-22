@@ -7,12 +7,13 @@ sd(dataset$total)
 summary(dataset$total)    ## b ##
 
 
-hist(dataset$total,100)    ## c ##
+hist(total,150,main="Histogram of Settled Amounts",ylab="Number of Claims",xlab="Settled Amount")   ## c ##
 hist(dataset$op_time)    ##  d  ## 
 
 h<-hist(dataset$legrep,2,freq=F)
-h$density<-h$counts/sum(h$counts)
-plot(h,freq = F,main="Legal representation proportionof claims", xlab="legal representation",ylab="proportion")  ## e ##
+leg.prob=h$counts/sum(h$counts)
+barplot(leg.prob,names.arg =c("no","yes"))
+
 
 inj3<-as.numeric(as.character(dataset$inj3))
 his.inj1<-hist(dataset$inj1,9,freq=F)
