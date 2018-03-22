@@ -26,8 +26,8 @@ logtotal<-log(dataset$total)
 hist(logtotal,100)
 
 ## i ##
-> plot(dataset$op_time,dataset$total)
-> plot(dataset$op_time,logtotal)
+plot(dataset$op_time,dataset$total)
+plot(dataset$op_time,logtotal)
 
 ##k##
 plot(dataset$op_time,logtotal,col=ifelse(dataset$legrep==0,"red","black"),pch=".",xlab="operational time",ylab="log value of claim amount")
@@ -37,3 +37,4 @@ plot(dataset$op_time,logtotal,col=ifelse(dataset$legrep==0,"red","black"),pch=".
 
 
 
+.Rproj.user
