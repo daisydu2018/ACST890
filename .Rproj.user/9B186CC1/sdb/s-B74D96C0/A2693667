@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "##Question1##\n\nFibo.seq<-function(n){     \n  x<-c(1,1)\n  while (length(x)<n) {\n    i<-length(x)\n    y<-x[i]+x[i-1]\n    x<-c(x,y)\n  }\n  return (x)\n}\n\nFibo.seq(10)\n\n\n## Question3 ##\n## a ##\nsetwd(\"/Users/daisydu/Desktop\")\ndataset<-read.csv(\"PersonenSchaden.csv\",header=T) \n\n## b ##\nattach(dataset)\nmean(total)\nvar(total)\nsd(total)\nsummary(total)   \n\n## c ##\nhist(total,150,main=\"Histogram of Settled Amounts\",ylab=\"Number of Claims\",xlab=\"Settled Amount\")   \n## d ##\nhist(delay,main=\"Histogram of Delay Months\",ylab=\"Number of Claims\",xlab=\"Delay Months\")    \n\n##  e  ##\nh<-hist(dataset$legrep,2,freq=F)\nleg.prob=h$counts/sum(h$counts)\nbarplot(leg.prob,names.arg =c(\"no\",\"yes\"),main = \"The Proportion of Legal Representation\",xlab=\"\",ylab=\"Proportion\")  \n\n## f ##\ninj3<-as.numeric(as.character(dataset$inj3))\nhis.inj1<-hist(dataset$inj1,9,freq=F)\nhis.inj2<-hist(dataset$inj2,9,freq=F,add=T)\nhis.inj3<-hist(inj3,9,freq=F,add=T)\nhis.inj4<-hist(dataset$inj4,9,freq=F,add=T)\nhis.inj5<-hist(dataset$inj5,9,freq=F,add=T)   \n\n## h ##\nlogtotal<-log(dataset$total)\nhist(logtotal,50,main=\"Histogram of Claim Amounts in Log value\", xlab=\"Claim Amounts in Log value\")\n\n## i ##\n\nplot(op_time,total,main=\"Claim Amounts versus Operation Time\", ylab=\"Claim Size\",xlab=\"Operational Time\",cex=0.5,pch=18)\nplot(op_time,logtotal,main=\"Claim Amounts in Log Value versus Operation Time\", ylab=\"Claim Size in Log Value\",xlab=\"Operational Time\", cex=0.3)\n\n## k ##\nplot(op_time,logtotal,col=ifelse(legrep==0,\"red\",\"black\"),pch=18,xlab=\"operational time\",ylab=\"log value of claim amount\",main=\"Claim Amounts in Log Value versus Operation Time\",cex=0.3)\n\n> inj<-c(inj1,inj2,inj3,inj4,inj5)\n> inj[inj==0]=NA\n> t<-table(inj)\n> inj.prob<-t/sum(t)\n> barplot(inj.prob)\n",
+    "created" : 1521718498772.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1043515129",
+    "id" : "A2693667",
+    "lastKnownWriteTime" : 4300837936,
+    "last_content_update" : 1521718514516,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
