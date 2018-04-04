@@ -1,0 +1,46 @@
+#Q3
+
+#To write a shell script, use "vi" to open vim editor
+vi fibonums.sh
+
+#Then in the vim text editor, use i to convert to input mode and input the "Fibonums script". When all input is done, use "esc" to convert to command mode and put ":x" to quit.
+
+
+#before execute fibonums.sh, use "chmod" command to change the access permissions to file system object.
+
+chmod +x fibonums.sh
+
+#To execute this script.
+
+./fibonums.sh
+
+#Input a number such as "5", then the first 5 fibonacci numbers will be listed.
+
+
+
+#This is Fibonums script.
+
+#!/bin/bash
+
+if [$# -eq 1]
+then
+        Num=$1
+else
+        echo -n "Enter a Number:"
+        read Num
+fi
+
+f2=1
+
+echo "The Fibonacci sequence for the number $Num is : "
+
+for (( i=0;i<=Num;i++ ))
+
+do
+
+        echo -n "$f1 "
+        fn=$((f1+f2))
+        f1=$f2
+        f2=$fn
+done
+echo
