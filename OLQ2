@@ -1,0 +1,15 @@
+for f in *oo.txt
+Do
+## To search for the .txt file whose filename contains ”oo” and for each selected file, process a “for” loop.
+cp $f /Users/new
+##this line is used to copy the selected file to the dictionary /Users/new.
+mv -v /Users/new/$f /Users/new/$(echo $f | sed 's/^\(.\)\oo.txt/ACST890_s1_2018_\1\oo.txt/')
+## this line is to rename the selected file, -v is to only print the modified files. mv could be used to move the file from a dictionary 
+to another and it also could be used to change the filename. In this case, the file with the name f in the dictionary /Users/new is 
+modified to (echo $f), which is to print $f and at the same time, the result is piped to a second instance of Sed which introduces 
+“ACST890_s1_2018_” at the beginning. In the instance of Sed, s is to denote substitutes and the content between the first “/…/” is 
+used to represents the old name within which \(.\) matches the first part, which can be referenced by \1 (in the later part) and it 
+follows by the “00.txt”. The content between the second “/…/” is used to represents the new name which puts “ACST890_s1_2018_” at the
+beginning and follows by the \1 referring to the first part in the old name and file type .txt
+done
+## the end
