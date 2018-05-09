@@ -1,1 +1,46 @@
 A1T1
+
+
+Q2.
+import random    
+a=random.randint(0,1)  
+if a==0:
+  print("Tail")
+else:
+  print("Head")
+
+
+Q3.
+a=float(input("Enter your income:"))
+
+def F(a):
+  if a<=18200:return 0
+  elif a<=37000 and a>18200:return 0.19*(a-18200)
+  elif a<=87000 and a>37000:return 3572+0.325*(a-37000)
+  elif a<=180000 and a>87000: return 19822+0.37*(a-87000)
+  else: return 54532+0.45*(a-180000)
+  
+incomeat=a-F(a)
+
+print("Your tax is $" +format(F(a),' .2f') + " and your income after tax is $" +(format(incomeat,' .2f')) + " .")
+
+Q4
+n=int(input("Enter an integer:"))
+##The user could see “Enter an integer” showing in the screen and given the input, convert it to integer type and then let it be n
+a=1
+b=0
+c=0
+##Let a=1, b=0 and c=0
+if n<=0:
+ print ("Please enter a postive integer")
+## if n<=0 “Please enter a positive integer” will show in the screen.
+
+elif n>0:
+ print (a)
+##Then if n>0, print a (a=1 at this time) at first.
+for counter in range(0,n):
+		 
+ c=b
+ b=a
+ a=c+b
+ print (a)
